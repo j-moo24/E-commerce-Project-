@@ -1,0 +1,22 @@
+E-commerce Project 
+ https://docs.google.com/spreadsheets/d/1F3-qPHc9gxaAEUwoce1_7Qtncp6A5-4Ug2RgKPP640s/edit?gid=38637670#gid=38637670
+
+1. Project Overview 
+The goal is to conduct a proper business analysis on event log data for an E-commerce conmpany. This entails any necessary data cleaning, building a conversion funnel, preparing data for cohort analysis, and calculating retention rates. 
+In doing all of this, the company gains a better understanding of their users and cleary understands purchase behavior over time. 
+
+2. What was done to the data? 
+The raw data log contained all of the necessary elements needed to make a conversion funnel. I created a pivot table "Conversion_funnel" that contains the exact count of "User_id" values and the "Event_Type" column, which is sorted by "User_Id". After creating this simple product funnel, the raw data needed to be filered the "Raw_User_Activity" sheet by purchases. I filtered the "Event_Type" column to include only purchases.I proceeded by copying and pasting the entire "Raw_user_Activity" sheet, and created a new sheet entitled 
+"Purchase Activity". I reset the purchases filter on "Raw_User_Activity" in the case that I should need to access the orginal copy. I created a pivot table entitled "First_Purchase" from "Purchase_Activity". This pivot table included each user id and the event date of their first 
+purchase. Knowing this, I created a new column "First_Purchase_Date" using the VLOOKUP formula. This will serve as the foundation for building monthly cohorts. Using the text function, I created two new columns "Purchase_month" and "First_Purchase_Month". Using the text function DATEDIF, I can subtract the values in "First_Purchase" from 
+"First_Purchase_month". The value from this subtraction serves as the "Cohort_Age" column. With these new columns, specifically being "User_Id", "Cohort_Age", and "First_Purchase_Month", I created a new pivot table titled "Cohort_Analysis". This pivot table gives 
+us the exact user count of six different monthly users that can be tracked over a four-month long period. This can be found on the new "Retention_Rates" pivot table. A new function, IFERROR, tracks the user count of each cohort over a four month-long period and divides from the original starting size. 
+Included are screenshots of the specific functions. 
+
+3. Results 
+ Concerning the simple product funnel, 29.04% of online users clicked through the view page and preceeded to the shopping cart page. Of those users, 35.61% made a purchase after adding an item into the cart. Ultimately, the total conversion rate 
+is 10.34% As for the monthly cohorts, there is a significant drop in retention rates for all cohorts from month zero to month one. The first cohort showed the most online user activity during the four month range. With all of this being said, there is room for improvement. 
+
+4. Future Analysis 
+A simple product funnel follows a linear path from point A to point B. This is useful for the full story, but I would be curious as to whether users follow a nontraditional path on this website. Using a more sequential funnel path that takes time of day into account, the user count 
+at each stage would show a different picture. I would be able to gain better insights into click-through rates, as well as each step before the final payment. 
